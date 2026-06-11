@@ -8,8 +8,8 @@ description: Compile weekly reviews into a strategic monthly review and consolid
 
 Use this skill to compile one month of weekly reviews into:
 
-1. a draft monthly review in `journals/monthly/`
-2. a refined update to `promotion/candidates.md`
+1. a draft monthly review in `vault/journals/monthly/`
+2. a refined update to `vault/promotion/candidates.md`
 
 This is a higher-level synthesis workflow than weekly compilation.
 
@@ -26,14 +26,14 @@ Its goal is to identify:
 Read the following inputs before drafting outputs:
 
 ### Required
-- all weekly reviews for the target month, which are located under `journals/weekly/YYYY`. For example, weekly reviews in 2026 are stored in `journals/weekly/2026`.
-- `context/priorities.md`
+- all weekly reviews for the target month, which are located under `vault/journals/weekly/YYYY`. For example, weekly reviews in 2026 are stored in `vault/journals/weekly/2026`.
+- `vault/context/priorities.md`
 
 ### Use when relevant
-- relevant project files under `context/projects`
-- relevant area files under `context/areas`
-- relevant note file under `context/notes/` 
-- existing `promotion/candidates.md`
+- relevant project files under `vault/context/projects`
+- relevant area files under `vault/context/areas`
+- relevant note file under `vault/context/notes/` 
+- existing `vault/promotion/candidates.md`
 - canonical promotion files for deduplication awareness only
 - previous monthly review, if useful for continuity
 
@@ -46,14 +46,14 @@ Prefer the smallest relevant context set that improves judgment.
 
 This skill produces two outputs:
 
-1. a monthly review draft in `journals/monthly/YYYY`. For example, the monthly review for April 2026 should be stored in `journals/monthly/2026` and follow the naming convention of `Monthly Review @yyyy-mm`.
-2. an updated `promotion/candidates.md`
+1. a monthly review draft in `vault/journals/monthly/YYYY`. For example, the monthly review for April 2026 should be stored in `vault/journals/monthly/2026` and follow the naming convention of `Monthly Review @yyyy-mm`.
+2. an updated `vault/promotion/candidates.md`
 
-This skill may update `promotion/candidates.md`, but it must not directly update:
-- `promotion/insights.md`
-- `promotion/ideas.md`
-- `promotion/principles.md`
-- files under `/context`
+This skill may update `vault/promotion/candidates.md`, but it must not directly update:
+- `vault/promotion/insights.md`
+- `vault/promotion/ideas.md`
+- `vault/promotion/principles.md`
+- files under `vault//context`
 
 ---
 
@@ -68,7 +68,7 @@ Read the target month’s weekly reviews and identify:
 - patterns that appear across multiple weeks, not just once
 
 ### Step 2: Read current priorities
-Read `context/priorities.md` and identify:
+Read `vault/context/priorities.md` and identify:
 - the current season
 - relevant monthly priorities
 - relevant quarterly priorities
@@ -92,7 +92,7 @@ Use area notes to understand:
 - recurring risks
 - positive and negative signals
 
-Read notes under `context/notes/` only when they are explicitly linked in relevant source material or clearly necessary to interpret a repeated pattern, project signal, or area signal at monthly scale.
+Read notes under `vault/context/notes/` only when they are explicitly linked in relevant source material or clearly necessary to interpret a repeated pattern, project signal, or area signal at monthly scale.
 
 Use them selectively as supporting evidence or clarification.
 Do not expand monthly scope by scanning notes broadly.
@@ -119,7 +119,7 @@ Answer:
 - Which promotion candidates deserve more confidence, less confidence, merging, or removal?
 
 ### Step 6: Draft the monthly review
-Generate the monthly review using the monthly review template located in `templates/Monthly Review @yyyy-mm.md`.
+Generate the monthly review using the monthly review template located in `templates/monthly-review.md`.
 
 Write clearly and diagnostically.
 Focus on:
@@ -129,7 +129,7 @@ Focus on:
 - what should change next month
 
 ### Step 7: Refine promotion candidates
-Update `promotion/candidates.md` based on monthly evidence.
+Update `vault/promotion/candidates.md` based on monthly evidence.
 
 Use the monthly layer to:
 - confirm strong candidates
@@ -233,12 +233,12 @@ The monthly promotion stream should feel like a natural consequence of the month
 
 This skill may:
 - create or update the monthly review draft
-- create or update `promotion/candidates.md`
+- create or update `vault/promotion/candidates.md`
 
 This skill must not:
 - edit daily journals
 - edit weekly reviews except by explicit instruction
-- edit files under `/context`
+- edit files under `vault//context`
 - edit canonical promotion files
 - silently redefine priorities, projects, or areas
 
@@ -256,5 +256,5 @@ Before finishing, confirm:
 - candidate updates are more selective and refined than weekly outputs
 - weak candidates were not preserved automatically
 - no canonical promotion files were modified
-- no `/context` files were modified
+- no `vault/context` files were modified
 - the review and candidate updates are consistent with each other

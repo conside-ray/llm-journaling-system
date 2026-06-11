@@ -8,8 +8,8 @@ description: Compile one week of daily journals into a diagnostic weekly review 
 
 Use this skill to compile one week of daily journals into:
 
-1. a draft weekly review in `journals/weekly/`
-2. a reviewed set of promotion proposals in `promotion/candidates.md`
+1. a draft weekly review in `vault/journals/weekly/`
+2. a reviewed set of promotion proposals in `vault/promotion/candidates.md`
 
 This is a single analysis workflow with two output streams.
 
@@ -26,8 +26,8 @@ The goal is not just to summarize the week, but to identify:
 Read the following inputs before drafting outputs:
 
 ### Required
-- All daily journals for the target week. For example, the daily journals from April 2026 will be saved under `journals/daily/2026/2026-04`. The naming of each daily journal file follows this format: `Daily Journal @YYYY-MM-DD`. Unless otherwise specified, a target week refers to the past week from Monday to Sunday. For example, if the human initiates a weekly compilation on Monday, 2026-04-27, the target week would be Monday, 2026-04-20 to Sunday, 2026-04-26. There may be missing days from the past week, so use any available daily journals from that week as input. 
-- `context/priorities.md`
+- All daily journals for the target week. For example, the daily journals from April 2026 will be saved under `vault/journals/daily/2026/2026-04`. The naming of each daily journal file follows this format: `Daily Journal @YYYY-MM-DD`. Unless otherwise specified, a target week refers to the past week from Monday to Sunday. For example, if the human initiates a weekly compilation on Monday, 2026-04-27, the target week would be Monday, 2026-04-20 to Sunday, 2026-04-26. There may be missing days from the past week, so use any available daily journals from that week as input. 
+- `vault/context/priorities.md`
 
 ### Use when relevant
 - project files referenced in the week’s tasks or notes
@@ -45,14 +45,14 @@ Prefer the smallest set of relevant context files that improves interpretation.
 
 This skill produces two outputs:
 
-1. a weekly review draft in `journals/weekly/`
-2. an updated `promotion/candidates.md`
+1. a weekly review draft in `vault/journals/weekly/`
+2. an updated `vault/promotion/candidates.md`
 
-This skill may update `promotion/candidates.md`, but it must not directly update:
-- `promotion/insights.md`
-- `promotion/ideas.md`
-- `promotion/principles.md`
-- files under `/context`
+This skill may update `vault/promotion/candidates.md`, but it must not directly update:
+- `vault/promotion/insights.md`
+- `vault/promotion/ideas.md`
+- `vault/promotion/principles.md`
+- files under `vault/context`
 
 ---
 
@@ -67,7 +67,7 @@ Read the target week’s daily journals and identify:
 - signs of drift, avoidance, momentum, or bottlenecks
 
 ### Step 2: Read current priorities
-Read `context/priorities.md` and identify:
+Read `vault/context/priorities.md` and identify:
 - the current season
 - current monthly priorities
 - relevant quarterly priorities
@@ -77,7 +77,7 @@ Read `context/priorities.md` and identify:
 Use this file as the benchmark for alignment.
 
 ### Step 3: Pull in relevant context
-Read only the project and area files that are materially helpful for interpreting the week. Also read notes under `context/notes/` only when they are explicitly linked in the target week’s daily journals or clearly necessary to interpret a directly referenced project or area.
+Read only the project and area files that are materially helpful for interpreting the week. Also read notes under `vault/context/notes/` only when they are explicitly linked in the target week’s daily journals or clearly necessary to interpret a directly referenced project or area.
 
 Use project files to understand:
 - intended outcomes
@@ -109,7 +109,7 @@ Answer:
 - When a linked note contains reusable reasoning, frameworks, or conclusions relevant to the week, use it to improve interpretation and surface any distillable insights, ideas, or principles.
 
 ### Step 5: Draft the weekly review
-Generate the weekly review using the weekly review template located at `templates/Weekly Review @yyyy-ww`.
+Generate the weekly review using the weekly review template located at `templates/weekly-review.md`.
 
 Write clearly and diagnostically.
 Prefer concrete observations over vague uplift.
@@ -119,17 +119,17 @@ Focus on:
 - what repeated
 - what should carry into next week
 
-The weekly review draft finished by the agent should be saved under `journals/weekly/YYYY`. For example, any weekly reviews for 2026 should be saved under `journals/weekly/2026`. And the file should be renamed properly. For example, for the review of the 20th week of 2026, name it as `Weekly Review @2026-20.md`.
+The weekly review draft finished by the agent should be saved under `vault/journals/weekly/YYYY`. For example, any weekly reviews for 2026 should be saved under `vault/journals/weekly/2026`. And the file should be renamed properly. For example, for the review of the 20th week of 2026, name it as `Weekly Review @2026-20.md`.
 
 ### Step 6: Generate promotion candidates
 From the same analysis pass, identify a small number of strong promotion candidates.
 
-Use `promotion/candidates.md` as a staging file and fill in any fields relevant to the week. 
+Use `vault/promotion/candidates.md` as a staging file and fill in any fields relevant to the week. 
 Do not promote directly into canonical promotion files.
 
 Candidates should be selective and evidence-based.
 
-`promotion/candidates.md` should contain only new, deferred, rejected, or pending-review items for the current review period. Do not keep already-approved canonical memories rolling forward as full candidate entries. When an existing canonical insight, idea, or principle is materially reinforced by the week, mention it briefly in the weekly review or in a compact "Canonical Reinforcements" note with 0-3 bullets, but do not restage it as a candidate unless there is a concrete review action attached.
+`vault/promotion/candidates.md` should contain only new, deferred, rejected, or pending-review items for the current review period. Do not keep already-approved canonical memories rolling forward as full candidate entries. When an existing canonical insight, idea, or principle is materially reinforced by the week, mention it briefly in the weekly review or in a compact "Canonical Reinforcements" note with 0-3 bullets, but do not restage it as a candidate unless there is a concrete review action attached.
 
 ---
 
@@ -233,11 +233,11 @@ Promotion candidates should emerge naturally from the same analysis that shaped 
 
 This skill may:
 - create or update the weekly review draft
-- create or update `promotion/candidates.md`
+- create or update `vault/promotion/candidates.md`
 
 This skill must not:
 - edit daily journals
-- edit files under `/context`
+- edit files under `vault/context`
 - edit canonical promotion files
 - silently redefine priorities, projects, or areas
 
@@ -254,5 +254,5 @@ Before finishing, confirm:
 - meaningful project and area signals were surfaced when relevant
 - promotion candidates are selective and evidence-based
 - no canonical promotion files were modified
-- no `/context` files were modified
+- no `vault/context` files were modified
 - the two outputs are consistent with each other
