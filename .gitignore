@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# Obsidian volatile state
+.obsidian/workspace.json
+.obsidian/workspaces.json
+.obsidian/cache/
+
+# Temporary files
+*.tmp
+*.log
+
+# Private runtime vault
+private/
+user-data/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
